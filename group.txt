@@ -1,0 +1,35 @@
+/*buyTble
+num	userID	prodName	groupName	price	amount
+5	CKT     	운동화	NULL	30	2
+18	AWB     	노트북	전자	1000	1
+19	BMK     	모니터	전자	200	1
+20	CKT     	모니터	전자	200	5
+24	AWB     	청바지	의류	50	3
+25	CKT     	메모리	전자	80	10
+27	OKH     	책	서적	15	5
+28	HBH     	책	서적	15	2
+29	HBH     	청바지	의류	50	1
+30	HDJ     	운동화	NULL	30	2
+31	LSG     	책	서적	15	1
+32	CKT     	운동화	NULL	30	2
+*/
+
+--사용자별 총 구매액
+SELECT userID, sum(price*amount) as 총구매액
+FROM buyTbl
+group by userID
+
+-- 구매액이 1000이상인 고객
+/* 
+집계함수는 where절 사용x
+group by~ having 순서변경x
+*/
+SELECT userID, sum(price*amount) 
+FROM buyTbl
+group by userID
+having sum(price*amount) > 1000
+
+--각 분류 별로 합계와 총합계
+SELECT groupName,sum(price*amount)
+FROM buyTbl
+group by rollup (groupName)

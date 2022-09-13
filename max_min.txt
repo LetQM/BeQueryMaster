@@ -1,0 +1,20 @@
+/* userTbl
+userID	name	birthYear	addr	mobile1	mobile2	height	mDate
+AWB     	안우빈	2001	경북	010	55555555	186	2021-12-07
+BMK     	복민경	1991	서울	010	33333333	174	2012-03-05
+CKT     	최경태	1977	경남	010	66666666	170	2013-05-05
+GSH     	고시하	2001	경기	010	10101010	183	2016-06-07
+HBH     	황병훈	2001	경남	010	99999999	176	2015-05-05
+HDJ     	홍도준	1991	전남	010	77777777	166	2010-10-10
+LSG     	이승기	1987	서울	010	11111111	182	2008-08-08
+OKH     	오규혁	1965	서울	010	88888888	172	2014-04-04
+SHJ     	심형주	1965	충남	010	44444444	175	2015-07-23
+YHG     	윤형기	1977	경기	010	22222222	182	2008-08-08
+*/
+
+--가장 큰키와 가장작은키 회원이름,키 출력
+SELECT name,height
+FROM userTbl
+where height = (select max(height)from userTbl)
+or height = (select min(height) from userTbl)
+
