@@ -1,0 +1,5 @@
+1) SELECT * FROM salesman;
+
+2) SELECT "This is SQL Exercise, Practice and Solution";
+
+3) SELECT 5,10,15;
