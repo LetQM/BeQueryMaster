@@ -17,9 +17,9 @@
 ### [Step 1] - w3resource Join Query 까지
 1. https://www.w3resource.com/sql-exercises/
 
-### [Stemp 2] - programmers sql 문제
+### [Step 2] - programmers sql 문제
 2. https://school.programmers.co.kr/learn/challenges
 
 
-### [Stemp 3] - w3 resource 서브쿼리부터 ~ 챌린지 1까지
+### [Step 3] - w3 resource 서브쿼리부터 ~ 챌린지 1까지
 3. https://www.w3resource.com/sql-exercises/
