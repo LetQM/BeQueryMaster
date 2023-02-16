@@ -1,0 +1,5 @@
+select * from salesman
+
+select 'This is SQL Exercise, Practice and Solution'
+
+select 1,2,3
