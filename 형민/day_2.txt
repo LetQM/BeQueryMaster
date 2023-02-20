@@ -1,0 +1,8 @@
+1번 모든레코드 조회하기
+- SELECT * from animal_ins order by animal_id;
+
+2번 역순 정렬하기
+- SELECT NAME, DATETIME from animal_ins order by animal_id desc;
+
+3번 아픈 동물 찾기
+- SELECT animal_id, name FROM animal_ins where intake_condition = 'sick';
