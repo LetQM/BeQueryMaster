@@ -1,0 +1,16 @@
+1번 : 최댓값 구하기
+- SELECT max(datetime) AS '시간' FROM animal_ins
+
+2번 : 강원도에 위치한 생산공장 목록 출력하기
+- SELECT FACTORY_ID, FACTORY_NAME, ADDRESS FROM FOOD_FACTORY WHERE ADDRESS like '강원도%'
+
+3번 : 경기도에 위치한 식품창고 목록 출력하기
+- SELECT WAREHOUSE_ID, WAREHOUSE_NAME, ADDRESS,
+  case
+      WHEN FREEZER_YN is NULL
+      THEN 'N'
+      ELSE FREEZER_YN
+  END AS 'FREEZER_YN'
+  FROM FOOD_WAREHOUSE
+  WHERE ADDRESS LIKE '경기도%'
+  ORDER BY WAREHOUSE_ID;
