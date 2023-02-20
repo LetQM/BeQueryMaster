@@ -1,0 +1,8 @@
+1번 : 어린 동물 찾기
+- SELECT animal_id, name FROM animal_ins where intake_condition != 'Aged'
+
+2번 : 이름이 없는 동물의 아이디
+- SELECT animal_id FROM animal_ins where name is NULL
+
+3번 : 동물의 아이디와 이름
+- SELECT animal_id, name FROM animal_ins order by name and animal_id
