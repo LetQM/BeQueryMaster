@@ -1,0 +1,9 @@
+1번 : 나이 정보가 없는 회원 수 구하기
+- SELECT count(*) FROM USER_INFO WHERE AGE is Null
+
+2번 : 조건에 맞는 회원수 구하기
+- SELECT count(*) FROM USER_INFO WHERE YEAR(JOINED) = '2021' and AGE BETWEEN 20 and 29
+
+3번 : 가장 비싼 상품 구하기
+- SELECT max(price) FROM PRODUCT
+
