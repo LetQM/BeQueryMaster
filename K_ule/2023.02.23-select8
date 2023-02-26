@@ -1,0 +1,16 @@
+1번 : 평균 일일 대여 요금 구하기
+SELECT ROUND(avg(DAILY_FEE)) as AVERAGE_FEE
+from CAR_RENTAL_COMPANY_CAR 
+where CAR_TYPE = 'SUV'
+
+2번 : 과일로 만든 아이스크림 고르기
+SELECT i.FLAVOR
+from FIRST_HALF as f,ICECREAM_INFO as i
+where  i.FLAVOR=f.FLAVOR and f.TOTAL_ORDER > 3000 and i.INGREDIENT_TYPE = 'fruit_based'
+order by f.TOTAL_ORDER desc
+
+3번 :조건에 맞는 도서 리스트 출력하기
+SELECT BOOK_ID,DATE_FORMAT(PUBLISHED_DATE,"%Y-%m-%d")as PUBLISHED_DATE
+from BOOK
+where CATEGORY = '인문' and YEAR(PUBLISHED_DATE) ='2021'
+order by PUBLISHED_DATE
