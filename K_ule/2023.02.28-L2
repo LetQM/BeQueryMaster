@@ -1,0 +1,18 @@
+1번 : 최솟값 구하기
+SELECT MIN(DATETIME)
+FROM ANIMAL_INS
+
+2번 : 고양이와 개는 몇 마리 있을까
+select distinct ANIMAL_TYPE,
+count(ANIMAL_TYPE) over(partition by ANIMAL_TYPE)as count
+from ANIMAL_INS 
+where ANIMAL_TYPE in ('cat','dog')
+
+-- count(distinct ANIMAL_TYPE) 도 가능
+
+3번 : 동명 동물 수 찾기
+select NAME ,count(NAME) as COUNT
+from ANIMAL_INS 
+group by NAME
+having count(NAME)>1
+order by NAME
