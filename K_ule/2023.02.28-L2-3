@@ -1,0 +1,19 @@
+1번 : 중복 제거하기
+SELECT count(DISTINCT NAME)
+FROM ANIMAL_INS 
+
+2번: 중성화 여부 파악하기
+SELECT ANIMAL_ID,NAME,
+    CASE
+        WHEN SEX_UPON_INTAKE Like '%Neutered%' THEN 'O'
+        WHEN SEX_UPON_INTAKE Like '%Spayed%' THEN 'O'
+    ELSE 'X'
+    END as 중성화
+from ANIMAL_INS
+
+3번: NULL 처리하기
+SELECT ANIMAL_TYPE,IFNULL(NAME,'No name'),SEX_UPON_INTAKE
+from ANIMAL_INS
+order by ANIMAL_ID
+
+-- mssql은 ISNULL
