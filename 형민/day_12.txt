@@ -1,0 +1,14 @@
+1번 : 중복 제거하기
+- SELECT count(distinct(NAME)) FROM ANIMAL_INS WHERE NAME is not NULL;
+
+2번: 중성화 여부 파악하기
+- SELECT ANIMAL_ID,	NAME,
+  CASE
+   when SEX_UPON_INTAKE like '%Neutered%' then 'O'
+    when SEX_UPON_INTAKE like '%Spayed%' then 'O'
+   else 'X'
+  end as '중성화' FROM ANIMAL_INS
+
+3번: NULL 처리하기
+- SELECT ANIMAL_TYPE,	ifnull (NAME,'No name') as 'NAME',	SEX_UPON_INTAKE
+  FROM ANIMAL_INS
