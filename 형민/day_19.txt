@@ -1,0 +1,17 @@
+1번 :오랜 기간 보호한 동물(2)
+ - SELECT ao.ANIMAL_ID,	ao.NAME FROM ANIMAL_OUTS ao
+   INNER JOIN ANIMAL_INS ai ON ai.ANIMAL_ID = ao.ANIMAL_ID
+   ORDER BY DATEDIFF(ao.DATETIME, ai.DATETIME) DESC
+   LIMIT 2
+
+2번 :헤비 유저가 소유한 장소
+ - SELECT * FROM PLACES
+   WHERE HOST_ID IN (SELECT HOST_ID FROM PLACES GROUP BY HOST_ID HAVING count(HOST_ID) > 1)
+
+3번 :조건별로 분류하여 주문상태 출력하기
+ - SELECT ORDER_ID, PRODUCT_ID, DATE_FORMAT(OUT_DATE, '%Y-%m-%d'),
+   CASE
+       WHEN OUT_DATE is NULL THEN '출고미정'
+       WHEN OUT_DATE <= '2022-05-1' THEN '출고완료'
+       ELSE '출고대기'
+   END as 출고여부 FROM FOOD_ORDER
