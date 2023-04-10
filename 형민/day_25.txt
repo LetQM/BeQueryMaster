@@ -1,0 +1,18 @@
+1번 : 그룹별 조건에 맞는 식당 목록 출력하기
+- SELECT MEMBER_NAME, REVIEW_TEXT, DATE_FORMAT(REVIEW_DATE, '%Y-%m-%d') as 'REVIEW_DATE' FROM REST_REVIEW rr
+  INNER JOIN MEMBER_PROFILE mp
+  ON mp.MEMBER_ID = rr.MEMBER_ID
+  WHERE rr.MEMBER_ID = (SELECT MEMBER_ID FROM REST_REVIEW
+  GROUP BY MEMBER_ID
+  ORDER BY COUNT(MEMBER_ID) DESC
+  LIMIT 1)
+  ORDER BY REVIEW_DATE, REVIEW_TEXT
+
+-- GROUP BY 집계 중 중복제거 카운팅 cont(distinct ~~)
+2번 : 년, 월, 성별 별 상품 구매 회원 수 구하기
+- SELECT year(sales_date) as YEAR, month(sales_date) as MONTH, GENDER, count(DISTINCT ui.USER_ID) as USERS FROM ONLINE_SALE os
+  INNER JOIN USER_INFO ui
+  ON os.USER_ID = ui.USER_ID
+  WHERE ui.GENDER is NOT NULL
+  GROUP BY year(sales_date), month(sales_date), GENDER
+  ORDER BY YEAR, MONTH, GENDER
